@@ -62,6 +62,8 @@ public class Main {
             cliente.adicionarConta(conta);
             clientes.put(username, cliente);
             System.out.println("Cliente cadastrado com sucesso!");
+
+            fazerLoginAutomatico(username);
         }
     }
 
@@ -77,6 +79,11 @@ public class Main {
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }
+    }
+
+    private static void fazerLoginAutomatico(String username) {
+        System.out.println("Login automático bem-sucedido!");
+        System.out.println("Login como " + username);
     }
 
     private static long gerarNumeroAleatorio() {
