@@ -4,10 +4,20 @@ import models.strategies.contas.Conta;
 
 public class ContaCorrente implements Conta {
     private double saldo;
-    private long numero; // Adicionando o número da conta
+    private long numero;
 
     public ContaCorrente(long numero) {
+        this.saldo = 0;
         this.numero = numero;
+    }
+
+    @Override
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     @Override

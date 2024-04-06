@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4582d0d9-6c49-47b9-b92d-2a48ebd9d8ff" name="Changes" comment="Refatorar código para melhorar legibilidade e organização">
+    <list default="true" id="4582d0d9-6c49-47b9-b92d-2a48ebd9d8ff" name="Changes" comment="Adicionar funcionalidade de login automático">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/strategies/contas/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategies/contas/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/strategies/contas/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategies/contas/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/strategies/contas/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategies/contas/ContaPoupanca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/strategies/contas/factory/ContaFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategies/contas/factory/ContaFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
       <updated>1712278510011</updated>
       <workItem from="1712278511031" duration="6675000" />
       <workItem from="1712339181052" duration="5214000" />
-      <workItem from="1712353610237" duration="8903000" />
+      <workItem from="1712353610237" duration="10483000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -79,7 +83,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712363399084</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adicionar funcionalidade de login automático">
+      <option name="closed" value="true" />
+      <created>1712363749825</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712363749825</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,6 +100,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="Refatorar código para melhorar legibilidade e organização" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refatorar código para melhorar legibilidade e organização" />
+    <MESSAGE value="Adicionar funcionalidade de login automático" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionar funcionalidade de login automático" />
   </component>
 </project>

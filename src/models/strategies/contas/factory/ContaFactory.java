@@ -6,17 +6,10 @@ import models.strategies.contas.ContaPoupanca;
 
 public class ContaFactory {
     public static Conta criarConta(int tipo, long numero) {
-        switch (tipo){
-            case 1:
-                System.out.println("Conta poupança criada com sucesso!");
-                System.out.println("Número da conta: " + numero);
-                return new ContaPoupanca(numero);
-            case  2:
-                System.out.println("Conta corrente criada com sucesso!");
-                System.out.println("Número da conta: " + numero);
-                return new ContaCorrente(numero);
-            default:
-                throw new IllegalArgumentException("Tipo de conta inválida.");
-        }
+        return switch (tipo) {
+            case 1 -> new ContaPoupanca(numero);
+            case 2 -> new ContaCorrente(numero);
+            default -> throw new IllegalArgumentException("Tipo de conta inválida.");
+        };
     }
 }
