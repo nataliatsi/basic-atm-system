@@ -10,11 +10,11 @@ public class ContaFactory {
             case 1:
                 System.out.println("Conta poupança criada com sucesso!");
                 System.out.println("Número da conta: " + numero);
-                return new ContaPoupanca();
+                return new ContaPoupanca(numero);
             case  2:
                 System.out.println("Conta corrente criada com sucesso!");
                 System.out.println("Número da conta: " + numero);
-                return new ContaCorrente();
+                return new ContaCorrente(numero);
             default:
                 throw new IllegalArgumentException("Tipo de conta inválida.");
         }
