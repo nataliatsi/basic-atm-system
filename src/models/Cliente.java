@@ -1,6 +1,6 @@
 package models;
 
-import models.strategies.contas.Conta;
+import models.strategy.account.Conta;
 
 import java.util.ArrayList;
 import java.util.List;

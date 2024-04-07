@@ -1,4 +1,4 @@
-package models.strategies.transfers;
+package models.strategy.transfers;
 
 public interface Transfer {
     void transferir(double valor);

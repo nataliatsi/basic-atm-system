@@ -1,8 +1,8 @@
-package models.strategies.contas.factory;
+package models.strategy.account.factory;
 
-import models.strategies.contas.Conta;
-import models.strategies.contas.ContaCorrente;
-import models.strategies.contas.ContaPoupanca;
+import models.strategy.account.Conta;
+import models.strategy.account.ContaCorrente;
+import models.strategy.account.ContaPoupanca;
 
 public class ContaFactory {
     public static Conta criarConta(int tipo, long numero) {

@@ -1,8 +1,8 @@
-package models.strategies.contas;
+package models.strategy.account;
 
 public interface Conta {
     void depositar(double valor);
-    void sacar(double valor);
+    void transferir(double valor);
     long getNumero();
     double getSaldo();
 

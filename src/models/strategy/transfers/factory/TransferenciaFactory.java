@@ -1,9 +1,9 @@
-package models.strategies.transfers.factory;
+package models.strategy.transfers.factory;
 
-import models.strategies.transfers.Transfer;
-import models.strategies.transfers.TransferenciaPIX;
-import models.strategies.transfers.TransferenciaTED;
-import models.strategies.transfers.TransferenciaTEF;
+import models.strategy.transfers.Transfer;
+import models.strategy.transfers.TransferenciaPIX;
+import models.strategy.transfers.TransferenciaTED;
+import models.strategy.transfers.TransferenciaTEF;
 
 public class TransferenciaFactory {
     public static Transfer criarTransferencia(int tipo) {

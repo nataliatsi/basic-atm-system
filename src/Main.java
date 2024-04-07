@@ -1,12 +1,12 @@
 import java.util.*;
 
 import models.Cliente;
-import models.strategies.contas.Conta;
-import models.strategies.contas.factory.ContaFactory;
+import models.strategy.account.Conta;
+import models.strategy.account.factory.ContaFactory;
 
 public class Main {
-    private static Map<String, Cliente> clientes = new HashMap<>();
-    private static Random random = new Random();
+    private static final Map<String, Cliente> clientes = new HashMap<>();
+    private static final Random random = new Random();
 
     public static void main(String[] args) {
 
@@ -53,6 +53,10 @@ public class Main {
         clientes.put("user3", cliente3);
     }
 
+    private static Conta criarConta(int tipoConta) {
+        long numeroDaConta = gerarNumeroAleatorio();
+        return ContaFactory.criarConta(tipoConta, numeroDaConta);
+    }
 
     private static void cadastrarCliente(Scanner scanner) {
         System.out.print("Digite o nome de usuário: ");
@@ -63,11 +67,10 @@ public class Main {
         if (clientes.containsKey(username)) {
             System.out.println("Nome de usuário já existe. Escolha outro.");
         } else {
-            long numeroDaConta = gerarNumeroAleatorio();
             System.out.print("Digite o tipo de conta (1 para poupança, 2 para corrente): ");
             int tipoConta = scanner.nextInt();
 
-            Conta conta = ContaFactory.criarConta(tipoConta, numeroDaConta);
+            Conta conta = criarConta(tipoConta);
             Cliente cliente = new Cliente(username, senha);
             cliente.adicionarConta(conta);
             clientes.put(username, cliente);
@@ -84,7 +87,7 @@ public class Main {
         Cliente cliente = clientes.get(username);
         if (cliente != null && cliente.getSenha().equals(senha)) {
             System.out.println("Login bem-sucedido!");
-            menuConta(cliente,scanner);
+            menuConta(cliente, scanner);
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }
@@ -97,9 +100,10 @@ public class Main {
     private static void menuConta(Cliente cliente, Scanner scanner) {
         while (true) {
             System.out.println("\nMenu da Conta:");
-            System.out.println("1 - Consultar saldo");
-            System.out.println("2 - Receber valor");
-            System.out.println("3 - Transferir");
+            System.out.println("1 - Criar nova conta");
+            System.out.println("2 - Consultar saldo");
+            System.out.println("3 - Receber valor");
+            System.out.println("4 - Transferir");
             System.out.println("0 - Sair");
 
             int opcao = scanner.nextInt();
@@ -110,13 +114,20 @@ public class Main {
                     System.out.println("Saindo da sua conta...");
                     return;
                 case 1:
-                    consultarSaldo(cliente);
+                    System.out.print("Digite o tipo de conta (1 para poupança, 2 para corrente): ");
+                    int tipoConta = scanner.nextInt();
+                    Conta novaConta = criarConta(tipoConta);
+                    cliente.adicionarConta(novaConta);
+                    System.out.println("Nova conta criada com sucesso.");
                     break;
                 case 2:
-                    System.out.println("Recebimento de valor ainda não implementado.");
+                    consultarSaldo(cliente);
                     break;
                 case 3:
-                    System.out.println("Transferência ainda não implementada.");
+                    receberValor(cliente, scanner);
+                    break;
+                case 4:
+                    fazerTransferencia(cliente, scanner);
                     break;
                 default:
                     System.out.println("Opção inválida!");
@@ -135,6 +146,59 @@ public class Main {
             System.out.println("Número da Conta: " + conta.getNumero());
             System.out.println("Saldo: " + conta.getSaldo());
         }
+    }
+
+    private static void fazerTransferencia(Cliente cliente, Scanner scanner) {
+        List<Conta> contas = cliente.getContas();
+        if (contas.isEmpty()) {
+            System.out.println("Você não possui contas associadas.");
+            return;
+        }
+
+        System.out.println("Selecione a conta de origem:");
+        for (int i = 0; i < contas.size(); i++) {
+            System.out.println((i + 1) + " - Número da Conta: " + contas.get(i).getNumero());
+        }
+        int opcaoContaOrigem = scanner.nextInt();
+        scanner.nextLine();
+
+        Conta contaOrigem = contas.get(opcaoContaOrigem - 1);
+
+        System.out.println("Digite o valor da transferência:");
+        double valorTransferencia = scanner.nextDouble();
+        scanner.nextLine();
+
+        if (contaOrigem.getSaldo() >= valorTransferencia) {
+            contaOrigem.transferir(valorTransferencia);
+            System.out.println("Transferência realizada com sucesso.");
+        } else {
+            System.out.println("Saldo insuficiente para transferência.");
+        }
+    }
+
+
+    private static void receberValor(Cliente cliente, Scanner scanner) {
+        List<Conta> contas = cliente.getContas();
+        if (contas.isEmpty()) {
+            System.out.println("Você não possui contas associadas.");
+            return;
+        }
+
+        System.out.println("Selecione a conta em que deseja receber o valor:");
+        for (int i = 0; i < contas.size(); i++) {
+            System.out.println((i + 1) + " - Número da Conta: " + contas.get(i).getNumero());
+        }
+        int opcaoConta = scanner.nextInt();
+        scanner.nextLine();
+
+        Conta contaDestino = contas.get(opcaoConta - 1);
+
+        System.out.println("Digite o valor a ser recebido:");
+        double valorRecebido = scanner.nextDouble();
+        scanner.nextLine();
+
+        contaDestino.depositar(valorRecebido);
+        System.out.println("Valor recebido com sucesso.");
     }
 
 }
