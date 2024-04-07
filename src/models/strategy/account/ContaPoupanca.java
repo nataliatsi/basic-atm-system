@@ -36,13 +36,9 @@ public class ContaPoupanca implements Conta {
             return;
         }
 
-        if (getSaldo() >= valor) {
-            double valorComTaxa = valor * (1 + TAXA_JUROS_TRANSFERENCIA);
-            saldo -= valorComTaxa;
-            transferenciasHoje++;
-            System.out.println("Transferência realizada com sucesso.");
-        } else {
-            System.out.println("Saldo insuficiente para transferência.");
-        }
+        double valorComTaxa = valor * (1 + TAXA_JUROS_TRANSFERENCIA);
+        saldo -= valorComTaxa;
+        transferenciasHoje++;
     }
+
 }

@@ -28,12 +28,7 @@ public class ContaCorrente implements Conta {
 
     @Override
     public void transferir( double valor) {
-        if (getSaldo() >= valor) {
-            double valorComTaxa = valor * (1 + TAXA_JUROS_TRANSFERENCIA);
-            saldo -= valorComTaxa;
-            System.out.println("Transferência realizada com sucesso.");
-        } else {
-            System.out.println("Saldo insuficiente para transferência.");
-        }
+        double valorComTaxa = valor * (1 + TAXA_JUROS_TRANSFERENCIA);
+        saldo -= valorComTaxa;
     }
 }
