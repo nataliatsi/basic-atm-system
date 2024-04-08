@@ -1,6 +1,5 @@
 import java.util.*;
 
-import models.Cliente;
 import models.strategy.database.BancoDeDados;
 
 public class Main {

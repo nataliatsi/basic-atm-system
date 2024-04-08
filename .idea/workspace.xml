@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4582d0d9-6c49-47b9-b92d-2a48ebd9d8ff" name="Changes" comment="Adicionar funcionalidades: receber e transferir valores">
-      <change afterPath="$PROJECT_DIR$/src/models/strategy/database/BancoDeDados.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/strategy/database/Database.java" afterDir="false" />
+    <list default="true" id="4582d0d9-6c49-47b9-b92d-2a48ebd9d8ff" name="Changes" comment="Refatoração: encapsular diferentes estratégias de operações bancárias">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/strategy/account/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategy/account/ContaCorrente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/strategy/account/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategy/account/ContaPoupanca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/strategy/transfers/Transfer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/strategy/transfers/TransferenciaPIX.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/strategy/transfers/TransferenciaTED.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/strategy/transfers/TransferenciaTEF.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/strategy/transfers/factory/TransferenciaFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/strategy/database/BancoDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/strategy/database/BancoDeDados.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,22 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,7 +68,11 @@
       <workItem from="1712353610237" duration="11292000" />
       <workItem from="1712422572601" duration="421000" />
       <workItem from="1712525877850" duration="180000" />
-      <workItem from="1712526070507" duration="7965000" />
+      <workItem from="1712526070507" duration="9229000" />
+      <workItem from="1712535775637" duration="186000" />
+      <workItem from="1712597442538" duration="463000" />
+      <workItem from="1712597917701" duration="302000" />
+      <workItem from="1712601690965" duration="1470000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -115,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712530895295</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refatoração: encapsular diferentes estratégias de operações bancárias">
+      <option name="closed" value="true" />
+      <created>1712534266984</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712534266984</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +134,8 @@
     <MESSAGE value="Adicionar funcionalidade de login automático" />
     <MESSAGE value="Adicionar funcionalidade consultar saldo" />
     <MESSAGE value="Adicionar funcionalidades: receber e transferir valores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionar funcionalidades: receber e transferir valores" />
+    <MESSAGE value="Refatoração: encapsular diferentes estratégias de operações bancárias" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refatoração: encapsular diferentes estratégias de operações bancárias" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

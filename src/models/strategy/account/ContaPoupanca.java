@@ -29,16 +29,31 @@ public class ContaPoupanca implements Conta {
         return numero;
     }
 
-    @Override
-    public void transferir(double valor) {
-        if (transferenciasHoje >= LIMITE_TRANSFERENCIA_DIARIA) {
+    public int getTransferenciasHoje() {
+        return transferenciasHoje;
+    }
+
+    public boolean podeTransferir(double valor) {
+        if (getTransferenciasHoje() >= LIMITE_TRANSFERENCIA_DIARIA) {
             System.out.println("Limite de transferências diárias excedido.");
-            return;
+            return false;
         }
 
         double valorComTaxa = valor * (1 + TAXA_JUROS_TRANSFERENCIA);
-        saldo -= valorComTaxa;
-        transferenciasHoje++;
+        return saldo >= valorComTaxa;
     }
+
+    @Override
+    public void transferir(double valor) {
+        if (podeTransferir(valor)) {
+            double valorComTaxa = valor * (1 + TAXA_JUROS_TRANSFERENCIA);
+            saldo -= valorComTaxa;
+            transferenciasHoje++;
+            System.out.println("Transferência realizada com sucesso.");
+        } else {
+            System.out.println("Transferência não realizada.");
+        }
+    }
+
 
 }
