@@ -13,12 +13,11 @@ public class BancoDeDados implements Database{
     private long gerarNumeroAleatorio() {
         return Math.abs(random.nextLong() % 10000000000L);
     }
-    public Conta criarConta(int tipoConta) {
+    private Conta criarConta(int tipoConta) {
         long numeroDaConta = gerarNumeroAleatorio();
         return ContaFactory.criarConta(tipoConta, numeroDaConta);
     }
 
-    @Override
     public void cadastrarCliente(Scanner scanner) {
         System.out.print("Digite o nome de usuário: ");
         String username = scanner.nextLine();
@@ -39,7 +38,6 @@ public class BancoDeDados implements Database{
         }
     }
 
-    @Override
     public void fazerLogin(Scanner scanner) {
         System.out.print("Nome de usuário: ");
         String username = scanner.nextLine();
@@ -55,7 +53,6 @@ public class BancoDeDados implements Database{
         }
     }
 
-    @Override
     public void consultarSaldo(Cliente cliente) {
         List<Conta> contas = cliente.getContas();
         if (contas.isEmpty()) {
@@ -69,7 +66,7 @@ public class BancoDeDados implements Database{
         }
     }
 
-    public Conta selecionarConta(List<Conta> contas, Scanner scanner) {
+    private Conta selecionarConta(List<Conta> contas, Scanner scanner) {
         if (contas.isEmpty()) {
             System.out.println("Você não possui contas associadas.");
             return null;
@@ -85,7 +82,6 @@ public class BancoDeDados implements Database{
         return contas.get(opcaoConta - 1);
     }
 
-    @Override
     public void fazerTransferencia(Cliente cliente, Scanner scanner) {
         List<Conta> contas = cliente.getContas();
         Conta contaOrigem = selecionarConta(contas, scanner);
@@ -100,13 +96,11 @@ public class BancoDeDados implements Database{
 
         if (contaOrigem.getSaldo() >= valorTransferencia) {
             contaOrigem.transferir(valorTransferencia);
-            System.out.println("Transferência realizada com sucesso.");
         } else {
             System.out.println("Saldo insuficiente para transferência.");
         }
     }
 
-    @Override
     public void receberValor(Cliente cliente, Scanner scanner) {
         List<Conta> contas = cliente.getContas();
         Conta contaDestino = selecionarConta(contas, scanner);

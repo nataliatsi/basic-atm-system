@@ -18,7 +18,6 @@ public class ContaCorrente implements Conta {
     @Override
     public void depositar(double valor) {
         saldo += valor;
-        System.out.println("Transferência realizada com sucesso.");
     }
 
     @Override

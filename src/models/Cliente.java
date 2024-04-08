@@ -16,20 +16,8 @@ public class Cliente {
         this.contas = new ArrayList<>();
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getSenha() {
         return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public List<Conta> getContas() {
@@ -38,10 +26,6 @@ public class Cliente {
 
     public void adicionarConta(Conta conta) {
         contas.add(conta);
-    }
-
-    public void removerConta(Conta conta) {
-        contas.remove(conta);
     }
 
     @Override
